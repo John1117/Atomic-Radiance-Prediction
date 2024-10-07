@@ -66,7 +66,7 @@ def plot_testing(interparticle_distance, true_kernel_image, true_physical_label,
 def plot_attribution(interparticle_distance, atom_index, true_kernel_image, true_physical_label, attribution, normalized_diff, relative_normalized_color):
     image_size = attribution.shape[0]
     plt.figure(figsize=(20, 5))
-    plt.suptitle('ds={0}, xi={1}pi, rad({2})={3}, nmlzd dif={4}'.format(interparticle_distance, interparticle_distance*2, atom_index+1, true_physical_label[atom_index], normalized_diff), fontsize=20)
+    plt.suptitle(f'ds={interparticle_distance:.3f}, xi={interparticle_distance * 2:.3f}$\pi$, rad[{atom_index+1}]={10**true_physical_label[atom_index]:.2e}, normalized-diff={normalized_diff:.2e}', fontsize=20)
 
     max_element = np.max(np.abs(true_kernel_image.flatten()))
     kernel_normalized_color = colors.Normalize(-max_element, max_element)
